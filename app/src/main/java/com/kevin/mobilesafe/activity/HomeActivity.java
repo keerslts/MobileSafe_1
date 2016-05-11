@@ -17,8 +17,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.kevin.mobliesafe.R;
 import com.kevin.mobilesafe.utils.MD5Utils;
+import com.kevin.mobliesafe.R;
+
 
 
 /**

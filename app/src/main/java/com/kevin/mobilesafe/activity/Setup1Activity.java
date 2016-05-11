@@ -1,6 +1,7 @@
 package com.kevin.mobilesafe.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -22,7 +23,8 @@ public class Setup1Activity extends Activity {
 
     //下一页
     public void next(View view) {
-
+        startActivity(new Intent(this, Setup2Activity.class));
+        finish();
     }
 
 

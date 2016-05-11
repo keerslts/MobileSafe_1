@@ -5,8 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
-import com.kevin.mobliesafe.R;
+
 import com.kevin.mobilesafe.view.SettingItemView;
+import com.kevin.mobliesafe.R;
 
 
 /**

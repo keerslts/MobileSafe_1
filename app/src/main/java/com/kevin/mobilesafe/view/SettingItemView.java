@@ -15,9 +15,13 @@ import com.kevin.mobliesafe.R;
  */
 public class SettingItemView extends RelativeLayout {
 
-    TextView tvTitle;
-    TextView tvDesc;
-    CheckBox cbStatus;
+    private static final String NAMESPACE = "http://schemas.android.com/apk/res/com.kevin.mobliesafe";
+    private TextView tvTitle;
+    private TextView tvDesc;
+    private CheckBox cbStatus;
+    private String mTitle;
+    private String mDescOn;
+    private String mDescOff;
 
     public SettingItemView(Context context) {
         super(context);
@@ -26,7 +30,14 @@ public class SettingItemView extends RelativeLayout {
 
     public SettingItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+
+        mTitle = attrs.getAttributeValue(NAMESPACE, "title");// 根据属性名称,获取属性的值
+        mDescOn = attrs.getAttributeValue(NAMESPACE, "desc_on");
+        mDescOff = attrs.getAttributeValue(NAMESPACE, "desc_off");
+
         initView();
+
     }
 
     public SettingItemView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -43,6 +54,8 @@ public class SettingItemView extends RelativeLayout {
         tvTitle = (TextView) findViewById(R.id.tv_title);
         tvDesc = (TextView) findViewById(R.id.tv_description);
         cbStatus = (CheckBox) findViewById(R.id.cb_status);
+
+        setTitle(mTitle);// 设置标题
     }
 
     public void setTitle(String title) {
@@ -64,5 +77,10 @@ public class SettingItemView extends RelativeLayout {
 
     public void setChecked(boolean check) {
         cbStatus.setChecked(check);
+        if (check) {
+            setDesc(mDescOn);
+        } else {
+            setDesc(mDescOff);
+        }
     }
 }

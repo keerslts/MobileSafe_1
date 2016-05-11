@@ -25,8 +25,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.kevin.mobliesafe.R;
 import com.kevin.mobilesafe.utils.StreamUtils;
+import com.kevin.mobliesafe.R;
+
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
