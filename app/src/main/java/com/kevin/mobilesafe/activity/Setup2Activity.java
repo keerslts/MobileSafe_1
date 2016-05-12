@@ -28,16 +28,16 @@ public class Setup2Activity extends Activity {
 		finish();
 
 		// 两个界面切换的动画
-		//overridePendingTransition(R.anim.tran_in, R.anim.tran_out);// 进入动画和退出动画
+		overridePendingTransition(R.anim.tran_in, R.anim.tran_out);// 进入动画和退出动画
 	}
 
 	// 上一页
 	public void previous(View view) {
 		startActivity(new Intent(this, Setup1Activity.class));
-		//finish();
+		finish();
 
 		// 两个界面切换的动画
-//		overridePendingTransition(R.anim.tran_previous_in,
-//				R.anim.tran_previous_out);// 进入动画和退出动画
+		overridePendingTransition(R.anim.tran_previous_in,
+				R.anim.tran_previous_out);// 进入动画和退出动画
 	}
 }

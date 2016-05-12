@@ -25,6 +25,8 @@ public class Setup1Activity extends Activity {
     public void next(View view) {
         startActivity(new Intent(this, Setup2Activity.class));
         finish();
+
+        overridePendingTransition(R.anim.tran_in, R.anim.tran_out);// 进入动画和退出动画
     }
 
 
