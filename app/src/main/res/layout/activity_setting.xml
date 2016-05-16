@@ -18,4 +18,22 @@
         kevin:desc_on="自动更新已开启"
         kevin:title="自动更新设置"
         />
+    <com.kevin.mobilesafe.view.SettingItemView
+        android:id="@+id/siv_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        kevin:desc_off="归属地显示已经关闭"
+        kevin:desc_on="归属地显示已经开启"
+        kevin:title="电话归属地显示设置" />
+
+    <com.kevin.mobilesafe.view.SettingClickView
+        android:id="@+id/scv_address_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.kevin.mobilesafe.view.SettingClickView
+        android:id="@+id/scv_address_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

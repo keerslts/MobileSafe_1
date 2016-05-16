@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kevin.mobliesafe">
+    package="com.kevin.mobilesafe">
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
 
 
     <application
@@ -35,26 +37,32 @@
         <activity android:name="com.kevin.mobilesafe.activity.Setup3Activity"/>
         <activity android:name="com.kevin.mobilesafe.activity.Setup4Activity"/>
         <activity android:name="com.kevin.mobilesafe.activity.ContactActivity"/>
+        <activity android:name="com.kevin.mobilesafe.activity.AToolsActivity"/>
+        <activity android:name="com.kevin.mobilesafe.activity.AddressActivity"/>
+        <activity android:name=".activity.DragViewActivity" />
 
-        <receiver android:name="com.kevin.mobilesafe.receiver.BootCompleteReceiver" >
+        ]<receiver android:name="com.kevin.mobilesafe.receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <category android:name="android.intent.category.HOME" />
             </intent-filter>
-            <intent-filter >
-                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
-                <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
-                <data android:scheme="file">
-                </data>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-                <action android:name="android.intent.action.PACKAGE_REPLACED" />
-                <data android:scheme="package" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.PACKAGE_ADDED" />-->
+                <!--<action android:name="android.intent.action.PACKAGE_REMOVED" />-->
+                <!--<action android:name="android.intent.action.PACKAGE_REPLACED" />-->
+                <!--<data android:scheme="package" />-->
+            <!--</intent-filter>-->
+        </receiver>
+
+        <receiver android:name="com.kevin.mobilesafe.receiver.SmsReceiver" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
+        <service android:name="com.kevin.mobilesafe.service.LocationService" >
+        </service>
+        <service android:name=".service.AddressService" >
+        </service>
     </application>
 
 </manifest>

@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.kevin.mobilesafe.utils.ToastUtils;
 import com.kevin.mobilesafe.view.SettingItemView;
-import com.kevin.mobliesafe.R;
+import com.kevin.mobilesafe.R;
 
 
 /**

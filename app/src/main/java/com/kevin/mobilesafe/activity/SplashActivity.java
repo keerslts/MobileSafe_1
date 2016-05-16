@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 
 import com.kevin.mobilesafe.utils.StreamUtils;
-import com.kevin.mobliesafe.R;
+import com.kevin.mobilesafe.R;
 
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -38,6 +38,7 @@ import org.json.JSONObject;
 
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -47,7 +48,7 @@ import java.net.URL;
 
 public class SplashActivity extends Activity {
 
-    String TAG = "kevin";
+    String TAG = "safe";
 
     protected static final int CODE_UPDATE_DIALOG = 0;
     protected static final int CODE_URL_ERROR = 1;
@@ -114,6 +115,9 @@ public class SplashActivity extends Activity {
         rlRoot = (RelativeLayout)findViewById(R.id.rl_root);
 
         mPref = getSharedPreferences("config", MODE_PRIVATE);
+
+        copyDB("address.db");// 拷贝归属地查询数据库
+
         boolean autoUpdate = mPref.getBoolean("auto_update", true);
         if (autoUpdate) {
             checkVerson();
@@ -353,6 +357,51 @@ public class SplashActivity extends Activity {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    /**
+     * 拷贝数据库
+     *
+     * @param dbName
+     */
+    private void copyDB(String dbName) {
+
+        Log.i(TAG, "路径:" + getFilesDir().getAbsolutePath());
+        File destFile = new File(getFilesDir(), dbName);// 要拷贝的目标地址
+        Log.i(TAG, "destFile.getName() " + destFile.getName()+"   "+destFile);
+
+        if (destFile.exists()) {
+            Log.i(TAG, "数据库" + dbName + "已存在!");
+            return;
+
+        }
+
+        FileOutputStream out = null;
+        InputStream in = null;
+
+        try {
+            in = getAssets().open(dbName);
+            out = new FileOutputStream(destFile);
+
+
+            int len = 0;
+            byte[] buffer = new byte[1024];
+
+            while ((len = in.read(buffer)) != -1) {
+                out.write(buffer, 0, len);
+            }
+
+        } catch (IOException e) {
+            Log.i(TAG, "catch: ");
+            e.printStackTrace();
+        } finally {
+            try {
+                in.close();
+                out.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

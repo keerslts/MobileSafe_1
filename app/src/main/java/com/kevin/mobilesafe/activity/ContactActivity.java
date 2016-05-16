@@ -14,7 +14,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.kevin.mobliesafe.R;
+import com.kevin.mobilesafe.R;
 
 
 public class ContactActivity extends Activity {

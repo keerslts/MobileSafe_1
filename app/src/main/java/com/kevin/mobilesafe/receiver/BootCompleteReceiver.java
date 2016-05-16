@@ -24,8 +24,8 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 		SharedPreferences sp = context.getSharedPreferences("config",
 				Context.MODE_PRIVATE);
 		boolean protect = sp.getBoolean("protect", false);
-		//ToastUtils.showToast(context,"broadcast");
-		//Log.i("safe", " bootcompleteRecerver ");
+		ToastUtils.showToast(context,"broadcast");
+		Log.i("safe", " bootcompleteRecerver ");
 		// 只有在防盗保护开启的前提下才进行sim卡判断
 		if (protect) {
 			String sim = sp.getString("sim", null);// 获取绑定的sim卡
@@ -34,7 +34,7 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 				// 获取当前手机的sim卡
 				TelephonyManager tm = (TelephonyManager) context
 						.getSystemService(Context.TELEPHONY_SERVICE);
-				String currentSim = tm.getSimSerialNumber() + "222";// 拿到当前手机的sim卡
+				String currentSim = tm.getSimSerialNumber();// 拿到当前手机的sim卡
 				Log.i("safe", "onReceive: "+sim+"current"+currentSim);
 				if (sim.equals(currentSim)) {
 					System.out.println("手机安全");

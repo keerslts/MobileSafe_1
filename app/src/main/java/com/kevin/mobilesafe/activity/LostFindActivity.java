@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.kevin.mobliesafe.R;
+import com.kevin.mobilesafe.R;
 
 
 /**

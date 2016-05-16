@@ -2,7 +2,7 @@ package com.kevin.mobilesafe.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.kevin.mobliesafe.R;
+import com.kevin.mobilesafe.R;
 
 
 public class Setup1Activity extends BaseSetupActivity {

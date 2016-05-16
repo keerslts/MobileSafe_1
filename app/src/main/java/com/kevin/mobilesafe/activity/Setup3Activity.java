@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.kevin.mobilesafe.utils.ToastUtils;
-import com.kevin.mobliesafe.R;
+import com.kevin.mobilesafe.R;
 
 
 /**

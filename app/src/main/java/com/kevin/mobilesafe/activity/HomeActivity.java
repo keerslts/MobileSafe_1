@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kevin.mobilesafe.utils.MD5Utils;
-import com.kevin.mobliesafe.R;
+import com.kevin.mobilesafe.R;
 
 
 
@@ -57,6 +57,11 @@ public class HomeActivity extends Activity {
                 switch (position) {
                     case 0:
                         showPasswordDialog();
+                        break;
+                    case 7:
+                        // 高级工具
+                        startActivity(new Intent(HomeActivity.this,
+                                AToolsActivity.class));
                         break;
                     case 8:
                         startActivity(new Intent(HomeActivity.this, SettingActivity.class));

@@ -7,7 +7,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 
-import com.kevin.mobliesafe.R;
+import com.kevin.mobilesafe.R;
 
 
 /**
