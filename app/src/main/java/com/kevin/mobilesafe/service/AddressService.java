@@ -13,6 +13,7 @@ import android.graphics.PixelFormat;
 import android.os.IBinder;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -96,10 +97,13 @@ public class AddressService extends Service {
 
 		@Override
 		public void onReceive(Context context, Intent intent) {
+
+			Log.i("safe", "获取去电: ");
 			String number = getResultData();// 获取去电电话号码
 
 			String address = AddressDao.getAddress(number);
-			// Toast.makeText(context, address, Toast.LENGTH_LONG).show();
+			Log.i("safe", "address: "+address);
+			//Toast.makeText(context, address, Toast.LENGTH_LONG).show();
 			showToast(address);
 		}
 	}
